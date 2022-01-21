@@ -17,7 +17,7 @@ export default function Tree() {
     <div className="tree">
       <span ref={spaceRef}>&nbsp;</span>
       <p>root</p>
-      {data.values.map((value) => {
+      {data.values.reverse().map((value) => {
         const formatData = value.split(",");
         return (
           <p key={value} style={{ marginLeft: `calc(${formatData[1]}px * 4)` }}>
