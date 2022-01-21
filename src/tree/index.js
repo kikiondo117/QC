@@ -21,7 +21,7 @@ export default function Tree() {
         const formatData = value.split(",");
         return (
           <p key={value} style={{ marginLeft: `calc(${formatData[1]}px * 4)` }}>
-            {formatData[0]}
+            {formatData[0]} - {formatData[1]}
           </p>
         );
       })}
