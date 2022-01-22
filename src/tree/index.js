@@ -12,11 +12,19 @@ export default function Tree() {
     const spaces = event.target.elements[0].name;
     const value = event.target.elements[0].value;
 
+    if (!value) return null;
+
     setData((prevValue) => {
       return [...prevValue, `${value}, ${spaces}`];
     });
 
     event.target.reset();
+  };
+
+  const deleteValue = (keyProp) => {
+    setData((prevState) => {
+      return prevState.filter((data, key) => key !== keyProp);
+    });
   };
 
   React.useEffect(() => {
@@ -37,6 +45,9 @@ export default function Tree() {
             <br />
             <form onSubmit={handleOnSubmit}>
               <input name={formatData[1]}></input>
+              <button onClick={() => deleteValue(key)} type="button">
+                X
+              </button>
             </form>
           </p>
         );
